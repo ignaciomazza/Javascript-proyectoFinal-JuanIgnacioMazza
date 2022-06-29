@@ -1,98 +1,52 @@
-class zapatilla{
-    constructor(modelo, stock){
-        this.modelo = modelo.toLowerCase();
-        this.stock = parseInt(stock);
-    }
-    sumaStock(cantidad){
-        this.stock = this.stock + cantidad;
-        return this.stock;
-    }
-    restaStock(cantidad){
-        this.stock = this.stock - cantidad;
-        return this.stock;
+class equipo{
+    constructor(ciudad, nombre){
+        this.ciudad = ciudad;
+        this.nombre = nombre;
+        this.equipo = ciudad + " " + nombre;
     }
 }
 
-const zapatillas = [];
+const equipos = [];
 
-zapatillas.push(new zapatilla("vans", "5"));
-zapatillas.push(new zapatilla("nike", "5"));
-zapatillas.push(new zapatilla("adidas", "5"));
+equipos.push(new equipo("atlanta", "hawks"));
+equipos.push(new equipo("boston", "celtics"));
+equipos.push(new equipo("brooklyn", "nets"));
+equipos.push(new equipo("charlotte", "hornets"));
+equipos.push(new equipo("chicago", "bulls"));
+equipos.push(new equipo("cleveland", "cavaliers"));
+equipos.push(new equipo("dallas", "mavericks"));
+equipos.push(new equipo("denver", "nuggets"));
+equipos.push(new equipo("detroit", "pistons"));
+equipos.push(new equipo("golden state", "warriors"));
+equipos.push(new equipo("houston", "rockets"));
+equipos.push(new equipo("indiana", "pacers"));
+equipos.push(new equipo("los angeles", "clippers"));
+equipos.push(new equipo("los angeles", "lakers"));
+equipos.push(new equipo("memphis", "grizzlies"));
+equipos.push(new equipo("miami", "heat"));
+equipos.push(new equipo("milwakee", "bucks"));
+equipos.push(new equipo("minesota", "timberwolves"));
+equipos.push(new equipo("new orleans", "pelicans"));
+equipos.push(new equipo("new york", "knicks"));
+equipos.push(new equipo("oklahoma", "city thunder"));
+equipos.push(new equipo("orlando", "magic"));
+equipos.push(new equipo("philadelphia", "76ers"));
+equipos.push(new equipo("phoenix", "suns"));
+equipos.push(new equipo("portland", "trail blazers"));
+equipos.push(new equipo("sacramento", "kings"));
+equipos.push(new equipo("san antonio", "spurs"));
+equipos.push(new equipo("toronto", "raptors"));
+equipos.push(new equipo("utah", "jazz"));
+equipos.push(new equipo("washington", "wizards"));
 
-let pregunta1 = prompt("Que operacion busca realizar? \n 1-Comprar \n 2-Ingresar Stock \n 3-Ingresar Modelo");
-pregunta1 = pregunta1.toLowerCase();
 
-if (pregunta1 === "ingresar stock"){
 
-    let contra = prompt("Esta opcion es solo para empleados, ingrese la contraseña para continuar");
+let equipoUsuario = prompt("De que euipo es el jugador del que busca la zapatilla?");
 
-    if(contra === "1234"){
-        let model = prompt("De que modelo desea ingresar stock?");
-        model = model.toLowerCase();
+const existeEquipo = equipos.some((el) => el.ciudad == equipoUsuario || el.nombre == equipoUsuario || el.equipo == equipoUsuario);
 
-        const existe = zapatillas.find((el) => el.modelo === model);
-
-        if (existe){
-
-            let cantidad = prompt("Cuantos pares ingresarian?");
-            cantidad = parseInt(cantidad);
-
-            zapatillas.forEach( (zapa)=>{
-                if(zapa.modelo === model){
-                    let cant = zapa.sumaStock(cantidad);
-                    alert(`La cantidad de pares ${model} es: ${cant}`);
-                }
-            } );
-            
-        }else{
-
-            alert("Lo siento no tenemos ese modelo");
-
-        }
-    }else{
-        alert("Contraseña incorrecta!");
-    }
-    
-}else if(pregunta1 === "comprar"){
-
-    let model = prompt("Que modelo desea comprar?");
-    model = model.toLowerCase();
-
-    const existe = zapatillas.find((el) => el.modelo === model);
-
-    if (existe){
-
-        let cantidad = prompt("Que cantidad desea comprar?");
-        cantidad = parseFloat(cantidad);
-
-        zapatillas.forEach( (zapa)=>{
-            if(zapa.modelo === model){
-                let cant = zapa.restaStock(cantidad);
-                alert(`Su compra de ${model} ha sido esxitosa!`);
-            }
-        } );
-
-    }else{
-            alert("Lo siento no tenemos ese modelo");
-    }
-}else if(pregunta1 === "ingresar modelo"){
-
-    let contra = prompt("Esta opcion es solo para empleados, ingrese la contraseña para continuar");
-
-    if(contra === "1234"){
-        let model = prompt("Que modelo desea ingresar?");
-        model = model.toLowerCase();
-
-        const existe = zapatillas.find((el) => el.modelo === model);
-
-        if(existe){
-            alert("Ese modelo ya existe! Pruebe con otro modelo");
-        }else{
-            zapatillas.push(new zapatilla(model, "1"));
-        }
-    }else{
-        alert("Contraseña incorrecta!");
-    }
-
+if(existeEquipo){
+    const buscarEquipo = equipos.filter((el) => el.ciudad == equipoUsuario || el.nombre == equipoUsuario || el.equipo == equipoUsuario);
+    let aparecerEquipo = document.getElementById(buscarEquipo[0].nombre);
+    aparecerEquipo.classList.toggle("none");
 }
-

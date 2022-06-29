@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Roboto', sans-serif; }
+
+.container {
+  height: 100vh; }
+  .container header {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-evenly; }
+    .container header .container-buscar {
+      display: flex;
+      width: 100%;
+      justify-content: center; }
+      .container header .container-buscar .input-buscar {
+        width: 30%;
+        border: 1px solid #232323;
+        padding: 0.1rem 0.1rem; }
+      .container header .container-buscar .button-buscar {
+        padding: 0.1rem 1rem;
+        margin: 0rem 0.1rem;
+        border: 1px solid #232323; }
+    .container header nav ul {
+      display: flex; }
+      .container header nav ul li {
+        list-style: none;
+        margin: 0rem 1rem; }
+        .container header nav ul li a {
+          text-decoration: none;
+          color: #232323; }
+  .container main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    height: 80%; }
+    .container main .none {
+      display: none; }
+    .container main .equipo {
+      border-radius: 3px;
+      transition: .7s;
+      width: 350px;
+      height: 350px; }
+      .container main .equipo img {
+        height: 100%;
+        width: 100%; }
+    .container main .equipo:hover {
+      cursor: pointer;
+      transform: scale(1.1); }
+  .container footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%; }
+    .container footer .red-social {
+      margin: 0rem 1rem;
+      transition: 0.6s; }
+      .container footer .red-social img {
+        height: 3.5rem; }
+    .container footer .red-social:hover {
+      cursor: pointer;
+      transform: scale(1.1); }
